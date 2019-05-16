@@ -1,2 +1,6 @@
-stages:
-  - test
+
+tomato:
+  stage: test
+  script: 
+    - mvn test 
+
