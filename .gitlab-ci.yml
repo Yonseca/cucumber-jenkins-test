@@ -1,6 +1,8 @@
 
 tomato:
   stage: test
+  tags:
+    - maven
   script: 
+    - mvn verify
     - mvn test 
-
