@@ -1,15 +1,15 @@
 pipeline {
     agent any
-
     stages {
-        stage('Test') {
+        stage('Example') {
             steps {
-                sh 'mvn test'
+                echo 'Hello World'
             }
-        } 
-    } post {
-        success {
-            junit 'target/surefire-reports/**/*.xml' 
+        }
+    }
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
         }
     }
 }
