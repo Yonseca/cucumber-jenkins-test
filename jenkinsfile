@@ -1,15 +1,16 @@
 pipeline {
     agent any
+
     stages {
         stage('Test') {
             steps {
-                mvn test
+                sh 'mvn test'
             }
-        }
-    }
-    post {
-        always {
-            junit 'target/cucumber/*.xml'
+        } 
+        post {
+            success {
+                junit 'target/surefire-reports/**/*.xml' 
+            }
         }
     }
 }
