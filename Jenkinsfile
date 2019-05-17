@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Test') {
             steps {
-                echo 'Hello World'
+                echo 'Executing mvn test'
+                sh 'mvn test'
             }
         }
     }
