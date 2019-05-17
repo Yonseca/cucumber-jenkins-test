@@ -4,13 +4,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Executing mvn test'
-                sh 'mvn test'
+                powershell 'mvn test'
             }
         }
     }
     post { 
         always { 
-            echo 'I will always say Hello again!'
+            junit 'target/surefire-reports/*.xml'
         }
     }
 }
