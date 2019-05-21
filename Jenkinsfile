@@ -1,19 +1,17 @@
 pipeline {
     agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
+        tools {
+            maven 'Maven 3.3.9'
+            jdk 'jdk8'
         }
     }
     stages{
-        node('master'){
-                stage('Test') {
-                    steps {
-                        echo 'Executing mvn test'
-                        powershell 'mvn test'
-                    }
-                }
+        stage('Test') {
+            steps {
+                echo 'Executing mvn test'
+                powershell 'mvn test'
             }
+        }
     }
     post { 
         always { 
