@@ -6,10 +6,12 @@ pipeline {
         }
     }
     stages {
-        stage('Test') {
-            steps {
-                echo 'Executing mvn test'
-                powershell 'mvn test'
+        node{
+            stage('Test') {
+                steps {
+                    echo 'Executing mvn test'
+                    powershell 'mvn test'
+                }
             }
         }
     }
