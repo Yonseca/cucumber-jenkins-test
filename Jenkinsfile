@@ -10,9 +10,4 @@ pipeline {
             }
         }
     }
-    post { 
-        success {
-            currentBuild.result = 'SUCCESS'
-        }
-    }
 }
