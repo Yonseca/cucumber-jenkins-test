@@ -6,12 +6,13 @@ pipeline {
             steps {
                 echo 'Executing mvn test'
                 powershell 'mvn test'
+                junit 'target/surefire-reports/*.xml'
             }
         }
     }
     post { 
-        always { 
-            junit 'target/surefire-reports/*.xml'
+        success {
+            currentBuild.result = 'SUCCESS'
         }
     }
 }
